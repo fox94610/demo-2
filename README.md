@@ -1,8 +1,3 @@
- Ditto Code Demo
----------------------------------------
-by Kevin Fox
-<br>
-<br>
 ***Getting Started***
 
 Install
