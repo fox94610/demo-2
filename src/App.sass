@@ -1,0 +1,100 @@
+// Phone vs non-phone (includes landscape phone)
+@mixin breakpoint($point: lg)
+	@if $point == lg
+		@media (min-width: 992px)
+			@content
+	@else if $point == sm
+		@media (max-width: 991.98px)
+			@content
+
+// Bootstrap break points
+// md
+// sm
+// xs-xxs
+// xs
+// xxs
+@mixin bootpoint($point: md)
+	@if $point == lg
+		@media (min-width: 992px)
+			@content
+	@else if $point == md
+		@media (min-width: 768px) and (max-width: 991.98px)
+			@content
+	@else if $point == sm
+		@media (min-width: 576px) and (max-width: 767.98px)
+			@content
+	@else if $point == xs-xxs
+		@media (max-width: 575.98px)
+			@content
+	@else if $point == xs
+		@media (min-width: 414px) and (max-width: 575.98px)
+			@content
+	@else if $point == xxs
+		@media (max-width: 413.98px)
+			@content
+
+
+
+
+// Imported typeface from Google fonts
+$primary-font: 'Montserrat'
+
+
+// Global color defs
+$light-black: #222
+$dark-grey: #4c4c4c
+$light-blue: #72cdf9
+
+
+// General components
+@import './components/Header.sass'
+@import './components/SelectionLayout.sass'
+@import './components/SingleProduct.sass'
+@import './components/ProductDetails.sass'
+
+// Different areas of webapp
+@import './sections/GlassesSelector.sass'
+
+
+//Global styles
+html
+	overflow-x: hidden
+	position: relative
+	min-height: 100%
+
+body
+	overflow-x: hidden
+	font-family: $primary-font, sans-serif
+	color: $light-black
+	font-size: 18px
+	font-weight: 300
+
+h1
+	color: #e2e2e2
+	font-size: 24px
+	text-align: center
+	margin-top: 30px
+
+
+
+// react-confirm-alert popup overrides
+// react-confirm-alert documentation here - https://github.com/GA-MO/react-confirm-alert/blob/master/Document-v1.md
+
+.react-confirm-alert-overlay
+	width: 100vw !important
+
+.react-confirm-alert-body
+	border-radius: 0px !important
+
+.react-confirm-alert-button-group
+	button
+		border-radius: 0px !important
+
+.react-confirm-alert-body
+	width: 300px !important
+
+	@include breakpoint(lg)
+		width: 400px !important
+
+
+

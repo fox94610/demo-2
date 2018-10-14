@@ -1,0 +1,51 @@
+.selection-layout
+	background-color: white
+	
+	.headline
+		font-size: 40px
+		font-weight: 700
+		text-align: center
+		line-height: 43px
+		margin-top: 10px
+
+		@include breakpoint(lg)
+			font-size: 72px
+			line-height: normal
+			margin-top: 7px
+			margin-bottom: 20px
+
+	.headline.prod-selected
+		font-size: 16px
+		margin-top: 0px
+		margin-bottom: 16px
+
+		@include breakpoint(lg)
+			font-size: 24px
+			margin-top: 33px
+			margin-bottom: 27px
+
+	.products
+		text-align: center
+
+		.container
+			@include breakpoint(lg)
+				max-width: 856px
+
+			.row
+				justify-content: center
+
+	.headline-mask
+		position: relative
+		overflow: hidden
+
+		.anime-line
+			position: absolute
+			bottom: 0
+			left: 0
+			width: 0px
+			height: 1px
+			background-color: $light-black
+
+			@include breakpoint(lg)
+				height: 2px
+

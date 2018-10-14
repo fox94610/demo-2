@@ -1,0 +1,51 @@
+// Measured from PSD guides
+$mobileWidth: 145px
+$desktopWidth: 171px
+
+.single-product
+	position: relative
+	width: $mobileWidth
+	margin: 0px 5px 40px // Measured from PSD guides
+	border: 2px solid transparent
+	padding: 20px 5px
+
+	@include breakpoint(lg)
+		margin: 0px 30px 28px
+		padding: 20px 0
+		width: $desktopWidth 
+
+
+	&:link,
+	&:visited
+		border: 2px solid transparent
+	&:hover
+		border: 2px solid #cccccc
+
+	&.is-selected
+		border: 2px solid $dark-grey
+
+	.mask
+		overflow: hidden
+		position: relative
+
+		.anime-line-prod
+			position: absolute
+			bottom: 0px
+			left: 0
+			height: 1px
+			background-color: $light-black
+
+			@include breakpoint(lg)
+				height: 2px
+
+	img
+		width: 100%
+		margin-bottom: 26px
+
+	.brand
+		font-size: 14px
+		font-weight: 700
+
+	.name
+		font-size: 14px
+

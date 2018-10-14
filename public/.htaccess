@@ -1,0 +1,8 @@
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Forward to React
+RewriteBase /
+RewriteCond %{REQUEST_URI} !^/(buy/?|$)
+RewriteRule ^(.*)$ / [L,QSA]

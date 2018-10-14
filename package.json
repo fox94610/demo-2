@@ -1,0 +1,33 @@
+{
+  "name": "Ditto",
+  "version": "2.0.1",
+  "private": true,
+  "dependencies": {
+    "bootstrap": "^4.1.1",
+    "gsap": "^2.0.2",
+    "jquery": "^3.2.1",
+    "lodash": "^4.17.11",
+    "node-sass": "^4.7.2",
+    "nodemon": "^1.12.1",
+    "react": "^16.1.1",
+    "react-confirm-alert": "^2.0.5",
+    "react-dom": "^16.1.1",
+    "react-helmet": "^5.2.0",
+    "react-redux": "^5.0.7",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
+    "react-scripts": "1.1.4",
+    "redux": "^4.0.0",
+    "redux-thunk": "^2.3.0",
+    "typeface-montserrat": "0.0.54",
+    "whatwg-fetch": "^3.0.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "build-css": "node-sass --include-path sass src/App.sass src/App.css",
+    "watch-css": "nodemon -e sass -x \"npm run build-css\""
+  }
+}

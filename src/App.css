@@ -1,0 +1,270 @@
+header {
+  text-align: center;
+  height: 55px;
+  border-bottom: 1px solid #f0f0f0;
+  background-color: transparent;
+  cursor: pointer; }
+  header .company-name {
+    display: inline-block;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 55px; }
+
+.selection-layout {
+  background-color: white; }
+  .selection-layout .headline {
+    font-size: 40px;
+    font-weight: 700;
+    text-align: center;
+    line-height: 43px;
+    margin-top: 10px; }
+    @media (min-width: 992px) {
+      .selection-layout .headline {
+        font-size: 72px;
+        line-height: normal;
+        margin-top: 7px;
+        margin-bottom: 20px; } }
+  .selection-layout .headline.prod-selected {
+    font-size: 16px;
+    margin-top: 0px;
+    margin-bottom: 16px; }
+    @media (min-width: 992px) {
+      .selection-layout .headline.prod-selected {
+        font-size: 24px;
+        margin-top: 33px;
+        margin-bottom: 27px; } }
+  .selection-layout .products {
+    text-align: center; }
+    @media (min-width: 992px) {
+      .selection-layout .products .container {
+        max-width: 856px; } }
+    .selection-layout .products .container .row {
+      justify-content: center; }
+  .selection-layout .headline-mask {
+    position: relative;
+    overflow: hidden; }
+    .selection-layout .headline-mask .anime-line {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0px;
+      height: 1px;
+      background-color: #222; }
+      @media (min-width: 992px) {
+        .selection-layout .headline-mask .anime-line {
+          height: 2px; } }
+
+.single-product {
+  position: relative;
+  width: 145px;
+  margin: 0px 5px 40px;
+  border: 2px solid transparent;
+  padding: 20px 5px; }
+  @media (min-width: 992px) {
+    .single-product {
+      margin: 0px 30px 28px;
+      padding: 20px 0;
+      width: 171px; } }
+  .single-product:link, .single-product:visited {
+    border: 2px solid transparent; }
+  .single-product:hover {
+    border: 2px solid #cccccc; }
+  .single-product.is-selected {
+    border: 2px solid #4c4c4c; }
+  .single-product .mask {
+    overflow: hidden;
+    position: relative; }
+    .single-product .mask .anime-line-prod {
+      position: absolute;
+      bottom: 0px;
+      left: 0;
+      height: 1px;
+      background-color: #222; }
+      @media (min-width: 992px) {
+        .single-product .mask .anime-line-prod {
+          height: 2px; } }
+  .single-product img {
+    width: 100%;
+    margin-bottom: 26px; }
+  .single-product .brand {
+    font-size: 14px;
+    font-weight: 700; }
+  .single-product .name {
+    font-size: 14px; }
+
+.product-details {
+  max-width: 856px;
+  overflow: hidden;
+  /* Hide the browser's default radio button */
+  /* Create a custom radio button */
+  /* Create the indicator (the dot/circle - hidden when not checked) */
+  /* Show the indicator (dot/circle) when checked */
+  /* Style the indicator (dot/circle) */ }
+  .product-details .glasses {
+    margin: 40px auto 50px auto; }
+    .product-details .glasses .row {
+      justify-content: center; }
+      .product-details .glasses .row .col {
+        padding-left: 0px;
+        padding-right: 0px;
+        text-align: center; }
+        .product-details .glasses .row .col .glasses-large {
+          display: inline-block;
+          width: 95%; }
+          @media (min-width: 768px) and (max-width: 991.98px) {
+            .product-details .glasses .row .col .glasses-large {
+              width: 50%; } }
+          @media (min-width: 992px) {
+            .product-details .glasses .row .col .glasses-large {
+              width: 425px; } }
+  .product-details .brand-name-holder {
+    padding: 0 24px;
+    margin: 10px 0 16px; }
+    @media (min-width: 992px) {
+      .product-details .brand-name-holder {
+        margin: 20px 0 30px; } }
+    .product-details .brand-name-holder .brand-name {
+      position: relative;
+      font-weight: 700;
+      text-align: center;
+      font-size: 36px;
+      line-height: 40px; }
+      @media (min-width: 992px) {
+        .product-details .brand-name-holder .brand-name {
+          font-size: 72px;
+          line-height: 56px; } }
+      .product-details .brand-name-holder .brand-name .brand-mask {
+        position: relative; }
+    .product-details .brand-name-holder .anime-line-brand {
+      width: 0%;
+      height: 2px;
+      background-color: #222;
+      margin: 0 auto; }
+  .product-details .name {
+    text-align: center;
+    padding: 0 24px;
+    font-size: 18px;
+    margin-bottom: 10px; }
+    @media (min-width: 992px) {
+      .product-details .name {
+        margin-bottom: 0px; } }
+  .product-details .price {
+    font-weight: 700;
+    text-align: center;
+    padding: 0 24px;
+    font-size: 18px;
+    line-height: 40px;
+    margin-bottom: 20px; }
+  .product-details .description {
+    font-size: 18px; }
+  .product-details .form-holder {
+    margin: 30px 0; }
+    @media (min-width: 992px) {
+      .product-details .form-holder {
+        margin: 0; } }
+  .product-details .glasses-size {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 10px; }
+  .product-details .buy-btn {
+    border: 3px solid transparent;
+    font-size: 12px;
+    font-weight: 700;
+    color: white;
+    background-color: #222;
+    padding: 18px 0;
+    width: 100%;
+    margin: 20px 0;
+    cursor: pointer;
+    margin-top: 46px; }
+    @media (min-width: 992px) {
+      .product-details .buy-btn {
+        margin-top: 14px; } }
+    .product-details .buy-btn:link, .product-details .buy-btn:visited {
+      background-color: #222; }
+    .product-details .buy-btn:hover {
+      background-color: #4c4c4c; }
+    .product-details .buy-btn:active {
+      background-color: #222; }
+    .product-details .buy-btn:focus {
+      box-shadow: 0px 0px 3px 2px #72cdf9;
+      outline: 0; }
+  .product-details .radio-btn {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 14px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none; }
+    @media (min-width: 992px) {
+      .product-details .radio-btn {
+        margin-bottom: 20px; } }
+  .product-details .radio-btn input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer; }
+  .product-details .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 22px;
+    width: 22px;
+    border: 3px solid #4c4c4c;
+    border-radius: 50%; }
+  .product-details .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none; }
+  .product-details .radio-btn input:checked ~ .checkmark:after {
+    display: block; }
+  .product-details .radio-btn .checkmark:after {
+    top: 4px;
+    left: 4px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #4c4c4c; }
+
+.glasses-selector {
+  max-width: 886px; }
+  @media (max-width: 575.98px) {
+    .glasses-selector {
+      padding-left: 0px;
+      padding-right: 0px; } }
+
+html {
+  overflow-x: hidden;
+  position: relative;
+  min-height: 100%; }
+
+body {
+  overflow-x: hidden;
+  font-family: "Montserrat", sans-serif;
+  color: #222;
+  font-size: 18px;
+  font-weight: 300; }
+
+h1 {
+  color: #e2e2e2;
+  font-size: 24px;
+  text-align: center;
+  margin-top: 30px; }
+
+.react-confirm-alert-overlay {
+  width: 100vw !important; }
+
+.react-confirm-alert-body {
+  border-radius: 0px !important; }
+
+.react-confirm-alert-button-group button {
+  border-radius: 0px !important; }
+
+.react-confirm-alert-body {
+  width: 300px !important; }
+  @media (min-width: 992px) {
+    .react-confirm-alert-body {
+      width: 400px !important; } }
