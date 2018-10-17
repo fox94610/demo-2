@@ -2,7 +2,7 @@ import React, {Component, Fragment} from 'react'
 import { connect } from 'react-redux'
 import { isEmpty } from 'lodash'
 import { confirmAlert } from 'react-confirm-alert'
-import { TweenMax, Power1, Expo} from 'gsap'
+import { TweenMax, Expo} from 'gsap'
 import { getGuid } from './Utils'
 import 'react-confirm-alert/src/react-confirm-alert.css'
 const $ = require('jquery')
@@ -14,10 +14,7 @@ class ProductDetails extends Component {
 		this.buyClick = this.buyClick.bind(this)
 		this.confirmBuySuccess = this.confirmBuySuccess.bind(this)
 		this.confirmBuyFailure = this.confirmBuyFailure.bind(this)
-		this.imgLoadComplete = this.imgLoadComplete.bind(this)
-		this.revealDetailsAnime = this.revealDetailsAnime.bind(this)
 		this.prodToProdAnime = this.prodToProdAnime.bind(this)
-		this.imgLoadCount = 0 // Required for reveal anime
 	}
 
 	componentDidUpdate() {
@@ -33,39 +30,12 @@ class ProductDetails extends Component {
 			$('.form-holder')
 		]
 
-		// Catch change [no details showing] -> [details showing]
-		// Avoid insta flash of content, pre images load, pre tween
-		if (this.hasProductInfo && !this.previoiusHasProdInfo) {
-			this.selectionLayout.css('opacity', '0')
-		}
-
 		// Catch change [product] -> [another product]
 		this.previousProd = this.currentViewProd
 		this.currentViewProd = this.props.currentProduct
 		if (this.currentViewProd !== this.previousProd && this.hasProductInfo) {
 			this.prodToProdAnime()
 		}
-	}
-
-	imgLoadComplete() {
-		this.imgLoadCount++
-		if (this.imgLoadCount===2) {
-			this.revealDetailsAnime()
-		}
-	}
-
-	revealDetailsAnime() {
-
-		// Grow in height
-		const orginalHt = this.productDetails.height()
-		TweenMax.set(this.productDetails, {height: "0px", opacity: 1})
-		TweenMax.to(this.productDetails, 0.3, {height: orginalHt, ease:Power1.easeOut/*, onComplete:function(){console.log("Ht tween done");}*/})
-
-		this.selectionLayout.css('opacity', '1')
-
-		// Push up reveal
-		TweenMax.set(this.productDetails, {y:200})
-		TweenMax.to(this.productDetails, 0.5, {y:0, ease:Expo.easeOut})
 	}
 
 	prodToProdAnime() {
@@ -93,49 +63,6 @@ class ProductDetails extends Component {
 		// Stagger in rest of content
 		TweenMax.set(this.elements, {y:200, opacity:0})
 		setTimeout(()=>(TweenMax.staggerTo(this.elements, 0.5, {y:0, opacity:1, ease:Expo.easeOut}, 0.1)), 1000)
-	}
-
-	getBuyBtn() {
-		return <button className="buy-btn" type="submit" onClick={this.buyClick} key={getGuid()}>BUY NOW</button>
-	}
-
-	getRadioBtnList(sizes) {
-		let list = []
-		sizes.forEach( (size) => {
-			list.push(
-				<label className="radio-btn" key={getGuid()}>
-					{size}
-				  <input type="radio" name="radio-glasses-size" value={size}/>
-				  <span className="checkmark"></span>
-				</label>
-			)
-		})
-		return list
-	}
-
-	getForm(sizes) {
-		let html = []
-
-		if (sizes.length > 1) {
-			html.push(
-				<div className="glasses-size" key={getGuid()}>Select Size:</div>
-			)
-			html.push(
-				<form key={getGuid()}>
-					{this.getRadioBtnList(sizes)}
-					{this.getBuyBtn()}
-				</form>
-			)
-		} else {
-			html.push(
-				<Fragment key={getGuid()}>
-					<div className="glasses-size">One Size Available:</div>
-					<div>{sizes[0]}</div>
-					{this.getBuyBtn()}
-				</Fragment>
-			)
-		}
-		return html
 	}
 
 	buyClick(e) {
@@ -174,9 +101,9 @@ class ProductDetails extends Component {
 			})
 			buyPostReq.fail(function(data){
 				if (window.location.hostname.indexOf("localhost") > -1 || window.location.hostname.indexOf("local") > -1) {
-					console.log("In this case, expected behavior is to get a 404.")
-					console.log("See live 'site' for typical 200 server response")
-					console.log("http://demo.foxflare.com")
+					console.log("In this case (localhost), expected behavior is to get a 404.")
+					console.log("See live version for typical 200 server response")
+					console.log("http://demo2.foxflare.com")
 					self.confirmBuySuccess()
 				} else {
 					//console.log("Failure, status...")
@@ -184,7 +111,6 @@ class ProductDetails extends Component {
 					self.confirmBuyFailure()
 				}
 			})
-
 		} else {
 			confirmAlert({
 				message: 'Please select your glasses size.',
@@ -230,20 +156,20 @@ class ProductDetails extends Component {
 
 		// No current product in state, break out, render nothing
 		if (!this.hasProductInfo) {
-			this.imgLoadCount = 0
 			return null
 		}
 
-		const { images, name, brand, price, description, sizes } = this.props.currentProduct
-		let form = this.getForm(sizes)
+		console.log(this.props.currentProduct)
+
+		const { images, name, brand, price, description, sizes, id } = this.props.currentProduct
 
 		return (
 			<div className="product-details">
 				<div className="container glasses">
 					<div className="row">
 						<div className="col">
-							<img className="glasses-large" src={images['frontal']} onLoad={this.imgLoadComplete} alt={name+"-frontview"} />
-							<img className="glasses-large" src={images['side']} onLoad={this.imgLoadComplete} alt={name+"-sideview"} />
+							<img className="glasses-large" src={images['frontal']} alt={name+"-frontview"} />
+							<img className="glasses-large" src={images['side']} alt={name+"-sideview"} />
 						</div>
 					</div>
 				</div>
@@ -263,7 +189,26 @@ class ProductDetails extends Component {
 							 <div className="description" dangerouslySetInnerHTML={{ __html: description }} />
 						</div>
 						<div className="col-sm form-holder">
-							{form}
+							<form>
+								{ sizes.length > 1 ? (
+									<Fragment>
+										<div className="glasses-size">Select Size:</div>
+										{ sizes.map((size, index) => (
+											<label className="radio-btn" key={index}>
+												{size}
+												<input type="radio" name="radio-glasses-size" value={size}/>
+												<span className="checkmark"></span>
+											</label>
+										))}
+									</Fragment>
+								) : (
+									<Fragment>
+										<div className="glasses-size">One Size Available:</div>
+										{sizes[0]}
+									</Fragment>
+								)}
+								<button className="buy-btn" type="submit" onClick={this.buyClick}>BUY NOW</button>
+							</form>
 						</div>
 					</div>
 				</div>
