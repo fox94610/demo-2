@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import { isEmpty } from 'lodash'
 import { confirmAlert } from 'react-confirm-alert'
 import { TweenMax, Expo} from 'gsap'
-import { getGuid } from './Utils'
 import 'react-confirm-alert/src/react-confirm-alert.css'
 const $ = require('jquery')
 
@@ -159,9 +158,7 @@ class ProductDetails extends Component {
 			return null
 		}
 
-		console.log(this.props.currentProduct)
-
-		const { images, name, brand, price, description, sizes, id } = this.props.currentProduct
+		const { images, name, brand, price, description, sizes } = this.props.currentProduct
 
 		return (
 			<div className="product-details">
@@ -176,7 +173,7 @@ class ProductDetails extends Component {
 				<div className="brand-name-holder">
 					<div className="brand-name">
 						<div className="brand-mask">
-							<div className="brand">{brand}</div>
+							<h1 className="brand">{brand}</h1>
 						</div>
 						<div className="anime-line-brand" />
 					</div>
@@ -186,7 +183,7 @@ class ProductDetails extends Component {
 				<div className="container">
 					<div className="row">
 						<div className="col-sm">
-							 <div className="description" dangerouslySetInnerHTML={{ __html: description }} />
+							 <p className="description" dangerouslySetInnerHTML={{ __html: description }} />
 						</div>
 						<div className="col-sm form-holder">
 							<form>
@@ -225,3 +222,4 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps)(ProductDetails)
+

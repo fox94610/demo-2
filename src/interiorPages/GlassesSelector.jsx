@@ -16,20 +16,7 @@ class GlassesSelector extends Component {
 	}
 
 	getMainContent() {
-		if (this.props.hasErrored) {
-			return <h1>There was an error<br />loading the items.</h1>
-		} else if (this.props.isLoading) {
-			return <h1>Loading...</h1>
-		} else if (this.props.items.length !== 0) {
-			return (
-				<div className="row">
-					<div className="col">
-						<ProductDetails />
-						<SelectionLayout />
-					</div>
-				</div>
-			)
-		}
+
 	}
 
 	render() {
@@ -37,11 +24,26 @@ class GlassesSelector extends Component {
 			<Fragment>
 				<Helmet>
 					<meta charSet="utf-8" />
-					<title>Products - Ditto</title>
+					<title>Products - JIANA</title>
 				</Helmet>
-				<div className="container glasses-selector">
-					{this.getMainContent()}
-				</div>
+				<main className="container glasses-selector">
+		      {(() => {
+						if (this.props.hasErrored) {
+							return <h1>There was an error<br />loading the items.</h1>
+						} else if (this.props.isLoading) {
+							return <h1>Loading...</h1>
+						} else if (this.props.items.length !== 0) {
+							return (
+								<div className="row">
+									<div className="col">
+										<ProductDetails />
+										<SelectionLayout />
+									</div>
+								</div>
+							)
+						}
+		      })()}
+				</main>
 			</Fragment>
 		)
 	}

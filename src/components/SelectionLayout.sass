@@ -1,7 +1,8 @@
 .selection-layout
 	background-color: white
 	
-	.headline
+	h2
+		color: $light-black
 		font-size: 40px
 		font-weight: 700
 		text-align: center
@@ -14,15 +15,15 @@
 			margin-top: 7px
 			margin-bottom: 20px
 
-	.headline.prod-selected
-		font-size: 16px
-		margin-top: 0px
-		margin-bottom: 16px
+		&.prod-selected
+			font-size: 16px
+			margin-top: 0px
+			margin-bottom: 16px
 
-		@include breakpoint(lg)
-			font-size: 24px
-			margin-top: 33px
-			margin-bottom: 27px
+			@include breakpoint(lg)
+				font-size: 24px
+				margin-top: 33px
+				margin-bottom: 27px
 
 	.products
 		text-align: center
@@ -48,4 +49,3 @@
 
 			@include breakpoint(lg)
 				height: 2px
-

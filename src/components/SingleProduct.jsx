@@ -72,11 +72,11 @@ class SingleProduct extends Component {
 		return (
 			<div className={coreClasses} onClick={this.onProdSelect}>
 				<div className={"mask mask-"+this.props.index}>
-					<div className={"animator-"+this.props.index}>
+					<figure className={"animator-"+this.props.index}>
 						<img src={images['frontal-sm']} alt={name} />
-						<div className="brand">{brand}</div>
+						<figcaption className="brand">{brand}</figcaption>
 						<div className="name">{name}</div>
-					</div>
+					</figure>
 					<div className={"anime-line-prod anime-line-prod-"+this.props.index} />
 				</div>
 			</div>

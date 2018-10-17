@@ -51,7 +51,7 @@ class SelectionLayout extends Component {
 		return (
 			<div className="selection-layout">
 				<div className="headline-mask">
-					<div className={headlineClass}>Select Your Eyewear</div>
+					<h2 className={headlineClass}>Select Your Eyewear</h2>
 					<div className="anime-line" />
 				</div>
 				<div className="products">
