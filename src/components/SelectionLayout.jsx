@@ -15,15 +15,25 @@ class SelectionLayout extends Component {
 	componentDidMount() {
 		this.headline = $('.headline')
 		this.animeLine = $('.anime-line')
+		this.thisComp = $('.selection-layout')
 		TweenMax.set(this.headline, {y:200})
 		setTimeout(this.animateIn, 300)
 	}
 
 	componentDidUpdate() {
-		// Catch state change [details showing] -> [no details showing]
+		// Catch state change [no details] -> [details showing]
+		if (this.detailsVisible && !this.previoiusDetailsVisible) {
+			this.delayReveal()
+		}
+		// Catch state change [no details] -> [no details showing]
 		if (!this.detailsVisible && this.previoiusDetailsVisible) {
 			this.animateIn()
 		}
+	}
+
+	delayReveal() {
+		TweenMax.set(this.thisComp, {opacity:0})
+		TweenMax.to(this.thisComp, 1, {delay: 1.5, opacity:1})
 	}
 
 
