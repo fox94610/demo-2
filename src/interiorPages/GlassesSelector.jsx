@@ -11,7 +11,7 @@ class GlassesSelector extends Component {
 		if (window.location.hostname.indexOf("localhost") > -1 || window.location.hostname.indexOf("local") > -1) {
 			this.props.fetchData('./eyewear.json')
 		} else {
-			this.props.fetchData('http://5ba39c558da2f20014654c4d.mockapi.io/eyeware')
+			this.props.fetchData('https://5ba39c558da2f20014654c4d.mockapi.io/eyeware')
 		}
 	}
 
