@@ -3,9 +3,9 @@ https://demo2.foxflare.com
 
 # Demonstrates
 Redux  
-Sass
-Purchase data post to API
-Stylish animation
+Sass  
+Purchase data post to API  
+Stylish animation  
 
 
 # Run locally
