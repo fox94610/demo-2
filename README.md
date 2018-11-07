@@ -1,27 +1,23 @@
-***Getting Started***
+# Live
+https://demo2.foxflare.com
 
-Install
+# Demonstrates
+Redux  
+Sass
+Purchase data post to API
+Stylish animation
+
+
+# Run locally
+Install dependencies
 ```
 npm i
 ```
-
-<br>
-
-Start Node
+Run locally
 ```
 npm start
 ```
-
-<br>
-
-Build for production distribution
+Build for production
 ```
 npm run build
-```
-
-<br>
-
-Editing? Hot reloading of .sass with...
-```
-npm run watch-css
 ```
