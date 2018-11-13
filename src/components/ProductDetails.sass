@@ -1,163 +1,163 @@
 .product-details
-	max-width: 856px
-	overflow: hidden
-	
-	.glasses
-		margin: 40px auto 50px auto
+  max-width: 856px
+  overflow: hidden
+  
+  .glasses
+    margin: 40px auto 50px auto
 
-		.row
-			justify-content: center
+    .row
+      justify-content: center
 
-			.col
-				padding-left: 0px
-				padding-right: 0px
-				text-align: center
+      .col
+        padding-left: 0px
+        padding-right: 0px
+        text-align: center
 
-				.glasses-large
-					display: inline-block
-					width: 95%
+        .glasses-large
+          display: inline-block
+          width: 95%
 
-					@include bootpoint(md)
-						width: 50%
-					
-					@include breakpoint(lg)
-						width: 425px
-
-
-	.brand-name-holder
-		padding: 0 24px
-		margin: 10px 0 16px
-
-		@include breakpoint(lg)
-			margin: 20px 0 30px
-
-		.brand-name
-			position: relative
-
-			.brand-mask
-				position: relative
-
-				h1
-					color: $light-black
-					font-weight: 700
-					text-align: center
-					font-size: 36px
-					line-height: 40px
-
-					@include breakpoint(lg)
-						font-size: 72px
-						line-height: 56px
-
-		.anime-line-brand
-			width: 0%
-			height: 2px
-			background-color: $light-black
-			margin: 0 auto
-
-	.name
-		text-align: center
-		padding: 0 24px
-		font-size: 18px
-		margin-bottom: 10px
-
-		@include breakpoint(lg)
-			margin-bottom: 0px
-
-	.price
-		font-weight: 700
-		text-align: center
-		padding: 0 24px
-		font-size: 18px
-		line-height: 40px
-		margin-bottom: 20px
-
-	.description
-		font-size: 18px
-
-	.form-holder
-		margin: 30px 0
-
-		@include breakpoint(lg)
-			margin: 0
-
-	.glasses-size
-		font-size: 18px
-		font-weight: 700
-		margin-bottom: 10px
-
-	.radio-btn
-		display: block
-		position: relative
-		padding-left: 35px
-		margin-bottom: 12px
-		cursor: pointer
-		font-size: 14px
-		-webkit-user-select: none
-		-moz-user-select: none
-		-ms-user-select: none
-		user-select: none
-
-		@include breakpoint(lg)
-			margin-bottom: 20px
-
-		// Create a custom radio button
-		.checkmark
-			position: absolute
-			top: 0
-			left: 0
-			height: 22px
-			width: 22px
-			border: 3px solid $dark-grey
-			border-radius: 50%
-
-			// Create the indicator, the dot - hidden when not checked
-			&:after
-				content: ""
-				position: absolute
-				display: none
-				top: 4px
-				left: 4px
-				width: 8px
-				height: 8px
-				border-radius: 50%
-				background: $dark-grey
-
-		// Hide the browser's default radio button
-		input
-			&[type="radio"]
-				position: absolute
-				opacity: 0
-				cursor: pointer
-
-				// When checked - reveal :after styling
-				&:checked
-					~ .checkmark:after
-						display: block
+          @include bootpoint(md)
+            width: 50%
+          
+          @include breakpoint(lg)
+            width: 425px
 
 
-	.buy-btn
-		border: 3px solid transparent
-		font-size: 12px
-		font-weight: 700
-		color: white
-		background-color: $light-black
-		padding: 18px 0
-		width: 100%
-		margin: 20px 0
-		cursor: pointer
-		margin-top: 46px
+  .brand-name-holder
+    padding: 0 24px
+    margin: 10px 0 16px
 
-		@include breakpoint(lg)
-			margin-top: 14px
+    @include breakpoint(lg)
+      margin: 20px 0 30px
 
-		&:link,
-		&:visited
-			background-color: $light-black
-		&:hover
-			background-color: $dark-grey
-		&:active
-			background-color: $light-black
-		&:focus
-			// h-shadow, v-shadow, blur, spread, color
-			box-shadow: 0px 0px 3px 2px $light-blue
-			outline: 0
+    .brand-name
+      position: relative
+
+      .brand-mask
+        position: relative
+
+        h1
+          color: $light-black
+          font-weight: 700
+          text-align: center
+          font-size: 36px
+          line-height: 40px
+
+          @include breakpoint(lg)
+            font-size: 72px
+            line-height: 56px
+
+    .anime-line-brand
+      width: 0%
+      height: 2px
+      background-color: $light-black
+      margin: 0 auto
+
+  .name
+    text-align: center
+    padding: 0 24px
+    font-size: 18px
+    margin-bottom: 10px
+
+    @include breakpoint(lg)
+      margin-bottom: 0px
+
+  .price
+    font-weight: 700
+    text-align: center
+    padding: 0 24px
+    font-size: 18px
+    line-height: 40px
+    margin-bottom: 20px
+
+  .description
+    font-size: 18px
+
+  .form-holder
+    margin: 30px 0
+
+    @include breakpoint(lg)
+      margin: 0
+
+  .glasses-size
+    font-size: 18px
+    font-weight: 700
+    margin-bottom: 10px
+
+  .radio-btn
+    display: block
+    position: relative
+    padding-left: 35px
+    margin-bottom: 12px
+    cursor: pointer
+    font-size: 14px
+    -webkit-user-select: none
+    -moz-user-select: none
+    -ms-user-select: none
+    user-select: none
+
+    @include breakpoint(lg)
+      margin-bottom: 20px
+
+    // Create a custom radio button
+    .checkmark
+      position: absolute
+      top: 0
+      left: 0
+      height: 22px
+      width: 22px
+      border: 3px solid $dark-grey
+      border-radius: 50%
+
+      // Create the indicator, the dot - hidden when not checked
+      &:after
+        content: ""
+        position: absolute
+        display: none
+        top: 4px
+        left: 4px
+        width: 8px
+        height: 8px
+        border-radius: 50%
+        background: $dark-grey
+
+    // Hide the browser's default radio button
+    input
+      &[type="radio"]
+        position: absolute
+        opacity: 0
+        cursor: pointer
+
+        // When checked - reveal :after styling
+        &:checked
+          ~ .checkmark:after
+            display: block
+
+
+  .buy-btn
+    border: 3px solid transparent
+    font-size: 12px
+    font-weight: 700
+    color: white
+    background-color: $light-black
+    padding: 18px 0
+    width: 100%
+    margin: 20px 0
+    cursor: pointer
+    margin-top: 46px
+
+    @include breakpoint(lg)
+      margin-top: 14px
+
+    &:link,
+    &:visited
+      background-color: $light-black
+    &:hover
+      background-color: $dark-grey
+    &:active
+      background-color: $light-black
+    &:focus
+      // h-shadow, v-shadow, blur, spread, color
+      box-shadow: 0px 0px 3px 2px $light-blue
+      outline: 0
