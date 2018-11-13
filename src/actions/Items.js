@@ -1,25 +1,19 @@
-export function itemsIsLoading(bool) {
-  //console.log("IS LOADING")
-  return {
-    type: 'ITEMS_IS_LOADING',
-    isLoading: bool
-  };
-}
+import type {ActionCreator} from 'redux';
 
-export function itemsFetchDataSuccess(items) {
-  //console.log("ON LOAD COMPLETE")
-  return {
-    type: 'ITEMS_FETCH_DATA_SUCCESS',
-    items
-  };
-}
+export const itemsIsLoading = (isLoading: bool): ActionCreator => ({
+  type: 'ITEMS_IS_LOADING',
+  isLoading,
+});
 
-export function itemsHasErrored(bool) {
-  return {
-    type: 'ITEMS_HAS_ERRORED',
-    hasErrored: bool
-  };
-}
+export const itemsFetchDataSuccess = (items: Object): ActionCreator => ({
+  type: 'ITEMS_FETCH_DATA_SUCCESS',
+  items,
+});
+
+export const itemsHasErrored = (hasErrored: bool): ActionCreator => ({
+  type: 'ITEMS_HAS_ERRORED',
+  hasErrored,
+});
 
 export function errorAfterFiveSeconds() {
   // We return a function instead of an action object
