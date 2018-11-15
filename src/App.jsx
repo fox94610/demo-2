@@ -6,7 +6,7 @@ import './App.css'
 import Header from './components/Header'
 
 // Interior pages
-import GlassesSelector from './interiorPages/GlassesSelector'
+import GlassesSelector from './interior-pages/GlassesSelector'
 // Other interior pages would be placed here
 
 export default class App extends Component {

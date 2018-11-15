@@ -14,11 +14,7 @@ class GlassesSelector extends Component {
       this.props.fetchData('https://5ba39c558da2f20014654c4d.mockapi.io/eyeware')
     }
   }
-
-  getMainContent() {
-
-  }
-
+  
   render() {
     return (
       <Fragment>

@@ -150,7 +150,6 @@ class ProductDetails extends Component {
   render() {
 
     // For animation
-    this.previoiusHasProdInfo = this.hasProductInfo
     this.hasProductInfo = !isEmpty(this.props.currentProduct)
 
     // No current product in state, break out, render nothing

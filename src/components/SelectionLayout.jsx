@@ -22,11 +22,11 @@ class SelectionLayout extends Component {
 
   componentDidUpdate() {
     // Catch state change [no details] -> [details showing]
-    if (this.detailsVisible && !this.previoiusDetailsVisible) {
+    if (this.detailsVisible && !this.detailsWerePreviouslyVisible) {
       this.delayReveal()
     }
-    // Catch state change [no details] -> [no details showing]
-    if (!this.detailsVisible && this.previoiusDetailsVisible) {
+    // Catch state change [details showing] -> [no details]
+    if (!this.detailsVisible && this.detailsWerePreviouslyVisible) {
       this.animateIn()
     }
   }
@@ -53,7 +53,7 @@ class SelectionLayout extends Component {
 
 
   render() {
-    this.previoiusDetailsVisible = this.detailsVisible
+    this.detailsWerePreviouslyVisible = this.detailsVisible
     this.detailsVisible = !isEmpty(this.props.currentProduct)
 
     const headlineClass = isEmpty(this.props.currentProduct) ? "headline" : "headline prod-selected"
@@ -67,9 +67,9 @@ class SelectionLayout extends Component {
         <div className="products">
           <div className="container">
             <div className="row">
-              { this.props.eyewear && this.props.eyewear.map( (product, i) => 
-                (<SingleProduct key={product.id} productData={product} index={i} />)
-                )}
+              { this.props.eyewear && this.props.eyewear.map((product, i) => (
+                <SingleProduct key={product.id} productData={product} index={i} />
+              ))}
             </div>
           </div>
         </div>
@@ -86,4 +86,3 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps)(SelectionLayout)
-

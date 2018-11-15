@@ -25,7 +25,7 @@ class SingleProduct extends Component {
 
   componentDidUpdate() {
     // Catch state change [details showing] -> [no details showing]
-    if (!this.detailsVisible && this.previoiusDetailsVisible) {
+    if (!this.detailsVisible && this.detailsWerePreviouslyVisible) {
       this.startAnimeTimer()
     }
   }
@@ -61,7 +61,7 @@ class SingleProduct extends Component {
   }
 
   render() {
-    this.previoiusDetailsVisible = this.detailsVisible
+    this.detailsWerePreviouslyVisible = this.detailsVisible
     this.detailsVisible = !isEmpty(this.props.currentProduct)
 
     const { images, name, brand, id } = this.props.productData
